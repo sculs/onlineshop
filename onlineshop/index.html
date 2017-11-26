@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bookstore</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+
+<!-- Register ================= -->
+<div class="container">
+    <div class="jumbotron">
+        <h2>Bookstore Registration</h2>
+    </div>
+    <p><a href="#">Homepage</a></p>
+    <div class="col col-lg-10 mx-auto my-5">
+        <form action="php/search.php" method="post" >
+            <div class="input-group">
+                <input type="text" class="form-control input-lg"
+                       name="search" placeholder="Search">
+                <div class="input-group-btn">
+                    <button class="btn btn-info" type="submit">
+                        Search
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="container row">
+        <div class="col col-6" style="border-right: 1px solid #777777;">
+            <form action="php/register.php" method="post" >
+                <h4>New Customer</h4>
+                <div class="form-group">
+                    <label for="inputName-r">Name <sup> </sup></label>
+                    <input type="text" name="name" id="inputName-r"
+                           class="form-control" placeholder="Name">
+                </div>
+                <div class="form-group">
+                    <label for="email-r">Email <sup>*</sup></label>
+                    <input type="email" name="email" id="email-r"
+                           class="form-control" placeholder="Email" required/>
+                </div>
+                <div class="form-group">
+                    <label for="inputPassword1-r">Password <sup>*</sup> </label>
+                    <input type="password" name="password_1" id="inputPassword1-r"
+                           class="form-control" placeholder="Password" required>
+                </div>
+                <div class="form-group">
+                    <label for="inputPassword2-r">Confirm Password <sup>*</sup> </label>
+                    <input type="password" name="password_2" id="inputPassword2-r"
+                    class="form-control" placeholder="Repeat password" required>
+                </div>
+                <div class="form-group">
+                    <label for="inputNumber-r">Number<sup>*</sup></label>
+                    <input type="text" name="number" id="inputNumber-r"
+                           class="form-control" placeholder="Number" required>
+                </div>
+                <input type="submit" class="btn btn-large btn-primary"
+                       name="reg_user" value="Register" >
+                <sup>*</sup>Required field
+
+            </form>
+        </div>
+
+
+        <div class="col col-6">
+            <h3> Log in</h3>
+            <form action="php/login.php" method="post">
+                <div class="form-group">
+                    <label for="inputEmail-l">Email</label>
+                    <input class="form-control" name="email-l" type="email"
+                           id="inputEmail-l" placeholder="Email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputPassword-l">Password</label>
+                    <input type="password" name="password-l" class="form-control"
+                           id="inputPassword-l" placeholder="Password" required>
+                </div>
+
+                <div class="form-group">
+                    <input class="btn btn-large btn-success" type="submit" value="Sign in" />
+                    <a href="forgetpass.php">Forget password?</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

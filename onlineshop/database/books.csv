@@ -1,0 +1,16 @@
+bookid;title;price;link;category;description
+101;Goodnight Moon;60;/img/products/book101-1.jpg;1;by Margaret Wise Brown  (Author),จน Clement Hurd (Illustrator), January 3, 2006
+102;Pippi Longstocking;149;/img/products/book102-1.jpg;1;by Astrid Lindgren  (Author),จน Ingrid Vang Nyman (Author),จน Tiina Nunnally (Translator), September 2, 2013, Hardcover
+103;The Giving Tree;95;/img/products/book103-1.jpg;1;by Shel Silverstein  (Author), February 18, 2014, Hardcover
+104;The Frog and Toad;72;/img/products/book104-1.jpg;1;by Arnold Lobel  (Author, Illustrator), May 25, 2004
+105;I Want My Hat Back;129;/img/products/book105-1.jpg;1;by Jon Klassen (Author, Illustrator), September 27, 2011
+201;Too Big to Fail;89;/img/products/book201-1.jpg;2;by Andrew Ross Sorkin, July 1, 2010
+202;Wild Ride;128;/img/products/book202-1.jpg;2;by Ann Hagedorn Auerbach, December 15, 1995
+203;Principles: Life and Work;133;/img/products/book203-1.jpg;2;by Ray Dalio, September 19, 2017
+204;Den of Thieves;135;/img/products/book204-1.jpg;2;by James B. Stewart, September 1, 1992
+205;King of Capital;139;/img/products/book205-1.jpg;2;by David Carey,จน John E. Morris, February 7, 2012
+301;Web Design with HTML, CSS, JavaScript and jQuery Set ;509;/img/products/book301-1.jpg;3;by Jon Duckett, August 2014
+302;Java: The Complete Reference;385;/img/products/book302-1.jpg;3;by Herbert Schildt, 2014
+303;PHP and MySQL for Dynamic Web Sites;448;/img/products/book303-1.jpg;3;By Larry Ullman, November 3, 2017
+304;Code Complete;355;/img/products/book304-1.jpg;3;by Steve McConnell, November 30, 2009
+305;Learning Python;619;/img/products/book305-1.jpg;3;by Mark Lutz, 2009
