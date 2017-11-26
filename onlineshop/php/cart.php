@@ -26,8 +26,8 @@ $result = mysqli_query($connection, $query);
 //$row = mysqli_fetch_assoc($result);
 
 global $connection;
-$price = 0;
-$totalItems = 0;
+$price = $_SESSION['totalPrice'];
+$totalItems = $_SESSION['itemCount'];
 while($row = mysqli_fetch_assoc($result)) {
 
     //Get all information about the product

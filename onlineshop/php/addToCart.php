@@ -5,6 +5,8 @@ include('db.php');
 
 $customerID = $_SESSION['email'];
 $productID = $_GET['productID'];
+$productPrice = $_SESSION['totalPrice'];
+$itemCount = $_SESSION['itemCount'];
 
 // if customer is not logged in
 if (empty($customerID)) {
@@ -34,11 +36,8 @@ $productPrice = $row2['price'];
 $query3 = "INSERT INTO sale (bookid, user, itemCount, orderNumber, productPrice, storage) 
                   VALUES ('$productID', '$customerID', 1, '$orderNumber', '$productPrice', -1);";
 
-//// Reduce 1 in storage while 1 added;
-//$result3 = mysqli_query($connection, $query3);
-//$row3 = mysqli_fetch_assoc($result3);
-//$storage = $row3['storage'] - 1;
-//$query4 = "INSERT INTO sale (storage) VALUES ('$storage');";
+$_SESSION["itemCount"] += 1;
+$_SESSION['totalPrice'] += $productPrice;
 
 
 header("Location: ../index.html");
