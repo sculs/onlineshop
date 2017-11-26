@@ -2,8 +2,8 @@
 
     // Local Database:
     $db_Host = "localhost";
-    $db_User = "Song";
-    $db_Password = "ycBOYpQgtmEG0dk1";
+    $db_User = "root";
+    $db_Password = "root";
     $db_Name = "bookstore";
 
     // Hostinger.com Database:
