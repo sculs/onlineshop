@@ -20,10 +20,11 @@
 
 <body>
 
+
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-        <a class="navbar-brand" href="index.html">Start Bootstrap</a>
+        <a class="navbar-brand" href="TestIndex.html">Start Bootstrap</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -78,7 +79,7 @@
     }
 
     </style><center>
-        <form>
+        <form action="php/register.php" method="post" >
             <label for="Name">Name:</label><br>
             <input type="text" id="Name" name="name"><br>
             <label for="Email">Email:</label><br>
@@ -86,9 +87,14 @@
             <label for="Number">Phone Number:</label><br>
             <input type="text" id="Number" name="number"><br>
             <label for="Password">Password:</label><br>
-            <input type="password" id="Password" name="password"><br>
+            <input type="password" id="Password" name="password_1"><br>
+            <label for="Password">Confirm Password:<sup>*</sup> </label><br>
+            <input type="password" id="Password2" name="password_2"><br>
+            <input type="submit" class="btn btn-large btn-primary"
+                   name="reg_user" value="Register">
+            <sup>*</sup>Required field
         </form><br><br>
-        <button class="button button1">Register</button>
+
 
         </center>
 
@@ -116,3 +122,4 @@
 </body>
 
 </html>
+
