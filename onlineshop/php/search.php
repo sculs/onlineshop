@@ -15,42 +15,36 @@ require('db.php');
 <body class="container">
 
 <?php
+$search = $_POST['search'];
 
-echo "1";
-    $search = $_POST['search'];
-    $query = "SELECT * FROM books 
-              WHERE books.title like '%$search%' 
-              OR books.description like '%$search%' ";
+$query = "SELECT * FROM books WHERE 
+          title like '%$search%' OR
+          description like '%$search%' OR
+          category like '%$search%'";
+$result = mysqli_query($connection, $query);
 
-    $result = mysqli_query($connection, $query);
-    $row = mysqli_fetch_assoc($query);
-    $dbTitle = $row['title'];
+if (mysqli_num_rows($result) > 0) {
+    while($row = mysqli_fetch_assoc($result)) {
+        echo
+            '<div class="container">
+            <img class="img-rounded" style="width: 250px; height: auto"
+                src="'.$row['link'].'" alt="'.$row['title'].'">
+            <h4>'.$row['title'].'</h4>
+            <h6 style="width:250px"><i>'.$row['description'].'</i></h6>
+            <h5>'.$row['category'].'</h5>
+            <p>BookID: '.$row['bookid'].'</p>
+            <p class="btn btn-outline-success">'.number_format($row['price']).' kr</p>
+            <hr>';
+        echo '</div>';
+    }
 
-print_r($row);
+} else {
+    echo '<h2>No Result!</h2>';
+}
 
-//    if (mysqli_num_rows($query) > 0) {
-//        while($row = mysqli_fetch_assoc($query))
-//        {
-//            echo '<div class="item">
-//                        <img src="img/items/'.$row['ImageName'].'.jpg" alt="watch">
-//                        <h2>'.$row['Name'].'</h2>
-//                        <p>'.number_format($row['Price'], 0, ',', ' ').' kr</p>
-//                        '; if($isLoggedIn) {
-//            echo '<a href="./php/addToCart.php?productID='.$row['ID'].'">Add to cart</a>';
-//        } else {
-//            echo '<a href="#/" onClick="loginAlert();">Add to cart</a>';
-//        }
-//            echo '</div>';
-//        }
-//    } else {
-//        echo '<h2>No Result!</h2>';
-//    }
+//mysqli_close($connection);
 
-
-
-
-
-    header('Location: index.php');
+//header('Location: index.html');
 ?>
 
 </body>

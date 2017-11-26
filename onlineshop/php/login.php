@@ -18,11 +18,12 @@ if (empty($password)) {
 if (count($errors) == 0) {
     $email = strtolower($email); // lowercase;
     $password = md5($password);  //encrypt the password before saving in the database
-    $sql = "SELECT * FROM users WHERE email ='".$email."' AND password='".$password."'";
+    $query = "SELECT * FROM users WHERE email ='".$email."' AND password='".$password."'";
 
-    $query = mysqli_query($connection, $sql);
+    $result = mysqli_query($connection, $query);
 
-    if (mysqli_num_rows($query) == 1) {
+    if (mysqli_num_rows($result) == 1) {
+        echo '<script>alert("You are logged in, Have a nice shopping!"); history.back();</script>';
         $_SESSION['email'] = $email;
         $_SESSION['status'] = "login";
         header('location: ../index.html');

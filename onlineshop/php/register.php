@@ -35,10 +35,9 @@ if (count($errors) == 0) {
         mysqli_query($connection, $sql);
 //        mysqli_close($connection);
 
-        echo '<script>alert("'.$name.' with the number '.$number.' has added to database");
+        echo '<script>alert("Welcome '.$name.', You are successfully registered. Log in and shopping.");
         history.back();</script>';
 
-        $_SESSION['name'] = $name;
         $_SESSION['status'] = "login";
         $_SESSION['email'] = "$email";
         header('location: ../index.html');
