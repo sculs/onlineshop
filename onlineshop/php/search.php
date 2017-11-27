@@ -42,6 +42,7 @@ if (mysqli_num_rows($result) > 0) {
     echo '<h2>No Result!</h2>';
 }
 
+
 //mysqli_close($connection);
 
 //header('Location: index.html');

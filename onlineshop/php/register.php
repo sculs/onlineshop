@@ -43,7 +43,7 @@ if (count($errors) == 0) {
         header('location: ../index.html');
 
         //================================
-        sendEmail();
+        sendEmail($email);
 
     } else {
         echo '<script>alert("Email is already taken!");
@@ -57,12 +57,16 @@ if (count($errors) == 0) {
 
 
 
-function sendEmail(){
-    $to = "liusongscu@gmail.com";
-    $subject = "Mail form PHP";
-    $message = "Hello! This is a message.";
+function sendEmail($email){
+//    $to = "liusongscu@gmail.com";
+    $to = $email;
+    $subject = "Thank you for registering Bookstore";
+    $message = "
+        Hello '.$name.',
+        
+    ";
     $from = "teamworkbookstore@gmail.com"; // just a text which written of email-address.
-    $headers = "From: $from" . "\r\n";
+    $headers = "From: ". $from . "\r\n";
 //    $headers = "MIME-Version: 1.0" . "\r\n";
     $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 
@@ -80,83 +84,11 @@ function sendEmail(){
             $message, "From: $email2" );   // from-email-address is from input below.
         echo "Thank you for using our mail form";
     }
-    else
-    //if "email" is not filled out, display the form
-    {
+    else {
+        //if "email" is not filled out, display the form
         echo "Email send fail";
-//        echo "<form method='post' action='$_PHP_SELF'>
-//
-//        Email: <input name='email' type='text' /><br />
-//        Subject: <input name='subject' type='text' /><br />
-//        Message:<br />
-//        <textarea name='message' rows='15' cols='40'>
-//        </textarea><br />
-//        <input type='submit' />
-//        </form>";
     }
 }
 
 
-function sendRegistrationEmail($email, $name, $password) {
-
-    $to = $email;
-    $subject = 'Successfully Registered';
-    $message = "
-        Hello, '.$name.' !
-        
-        Congratulation!
-        Your account has been created, enjoy your online shopping.
-        Keep the below login information safe and do not send them to anyone!
-
-        Account: '.$email.'
-        Password: '.$password.' 
-        ";
-
-    // Send email to customer
-    mail($to, $subject, $message);
-}
-
-
-//function sendEmail(){
-//    // Pear Mail Library
-//    require_once "Mail-1.4.1/Mail.php";
-//
-//    $from = 'teamworkbookstore@gmail.com';
-//    $to = 'liusongscu@gmail.com';
-//    $subject = 'Hi!';
-//    $body = "Hi, How are you?";
-//
-//    $headers = array(
-//        'From' => $from,
-//        'To' => $to,
-//        'Subject' => $subject
-//    );
-//
-//    $smtp = Mail::factory('smtp', array(
-//        'host' => 'ssl://smtp.gmail.com',
-//        //'host' => 'smtp.gmail.com',
-//
-//        'port' => '465',
-//        'auth' => true,
-//        'username' => 'teamworkbookstore@gmail.com',
-//        'password' => 'newton123'
-//    ));
-//
-//    echo 'error 3 <br>';
-////    mail($to, $subject, $message, $headers); //Function to send email
-//
-//
-//    $mail = $smtp->send($to, $headers, $body);
-//
-//    echo 'error 4 <br>';
-//
-//    if (PEAR::isError($mail)) {
-//        echo('<p>' . $mail->getMessage() . '</p>');
-//    } else {
-//        echo('<p>Message successfully sent!</p>');
-//    }
-//
-//
-//    echo 'error 5 <br>';
-//}
 ?>

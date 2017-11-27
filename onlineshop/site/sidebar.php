@@ -3,18 +3,19 @@
 
     <h1 class="my-4">Shop Name</h1>
     <div class="list-group">
-        <a class="list-group-item cate1">Children's books</a>
-        <a class="list-group-item cate2">Business Books</a>
-        <a class="list-group-item cate3">IT Books</a>
+        <a href="products.php" class="list-group-item" name="category1">Children's books</a>
+        <a href="products.php" class="list-group-item" name="category2">Business Books</a>
+        <a href="products.php" class="list-group-item" name="category3">IT Books</a>
+        
     </div><br>
 
-    <script>
-        $(document).ready(function(){
-            $(".cate1").click(function(){
-                $(XXX).show();
-            });
-        });
-    </script>
+<!--    <script>-->
+<!--        $(document).ready(function(){-->
+<!--            $(".cate1").click(function(){-->
+<!--                $(XXX).show();-->
+<!--            });-->
+<!--        });-->
+<!--    </script>-->
 
     <!-- maps -->
     <div>
