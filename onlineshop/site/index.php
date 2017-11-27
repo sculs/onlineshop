@@ -5,7 +5,7 @@
 <div class="container">
 
     <?php include "carousel.php" ?>
-    <?php include "search.php" ?>
+    <?php include "searchBar.php" ?>
 
     <div class="row">
 

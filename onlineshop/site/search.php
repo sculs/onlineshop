@@ -1,28 +1,25 @@
+<?php include "header.php" ?>
 
-<!-- Search function-->
-    <div class="search-box">
-<div class="container my-4">
+
+<!-- Page Content -->
+<div class="container">
+
+    <?php include "carousel.php" ?>
+    <?php include "searchBar.php" ?>
+
     <div class="row">
-        <div class="col col-10 ">
-            <form action="php/search.php" method="post">
-                <div class="input-group">
-                    <input type="text" class="form-control input-lg"
-                           name="search" placeholder="Search" required>
-                    <div class="input-group-btn">
-                        <button class="btn btn-info" type="submit">
-                            Search
-                        </button>
-                    </div>
-                </div>
-            </form>
+
+        <?php include "sidebar.php" ?>
+
+        <div class="col-lg-9">
+
+
+            <div class="row">
+                <?php include "../php/searchResult.php" ?>
+            </div>
+            <div class="my-5"></div>
         </div>
-
-        <div class="cart">
-            <i class="material-icons " style="font-size:40px;color:#17a2b8">add_shopping_cart</i>
-
-        </div>
-
     </div>
 </div>
-</div>
 
+<?php include "footer.php" ?>

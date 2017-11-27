@@ -12,7 +12,7 @@
     min-width: 100px;
 } */
 
-.search-box {
+.item-box {
     border: 5px solid #eeeeee;
     margin: 0 auto;
 }
@@ -37,4 +37,18 @@
     font-size: 14px;
     font-weight: 500;
     color: #2F3B53;
+}
+
+.category-head a, .category-item a{
+    font-size: 1.5rem;
+    text-decoration: none;
+    /*color: #f4f4f4;*/
+}
+
+.category-head a{
+    color: #f4f4f4;
+}
+
+.category-item a{
+    color: #111111;
 }

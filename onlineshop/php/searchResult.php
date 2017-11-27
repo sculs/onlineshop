@@ -1,35 +1,31 @@
 <?php
 session_start();
-require('../php/db.php');
+require('db.php');
+?>
 
-if ($_GET['cate']) {
-    $cate = $_GET['cate'];
-} else {
-    $cate = "";
-}
-$category = "";
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <title>Search Result</title>
+</head>
+<body class="container">
 
-if ($cate = 'category1') {
-    $category = "Children's book";
-} elseif (isset($_POST['category2'])) {
-    $category = "Business book";
-} elseif (isset($_POST['category3'])) {
-    $category = "IT book";
-} else {
-    $category = "";
-}
+<?php
+$search = $_POST['search'];
 
-if ($category = ""){
-    $query = "SELECT * FROM books";
-} else {
-    $query = "SELECT * FROM books WHERE category = '" . $category . "'";
-}
-//$query = "SELECT * FROM books";
+$query = "SELECT * FROM books WHERE 
+          title like '%$search%' OR
+          description like '%$search%' OR
+          category like '%$search%'";
 $result = mysqli_query($connection, $query);
 
-while ($row = mysqli_fetch_assoc($result)) {
-
-    echo '
+if (mysqli_num_rows($result) > 0) {
+    while($row = mysqli_fetch_assoc($result)) {
+        echo '
         <div class="col-lg-4 col-md-6 mb-4">
         <div class="card h-100">
             <a href="#"><img class="card-img-top" 
@@ -61,6 +57,17 @@ while ($row = mysqli_fetch_assoc($result)) {
         </div>
     </div>
     ';
+    }
+
+} else {
+    echo '<h2>No Result!</h2>';
 }
 
+
+//mysqli_close($connection);
+
+//header('Location: index.html');
 ?>
+
+</body>
+</html>
