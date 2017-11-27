@@ -2,29 +2,21 @@
 session_start();
 require('../php/db.php');
 
+$cate = "";
 if ($_GET['cate']) {
     $cate = $_GET['cate'];
-} else {
-    $cate = "";
-}
-$category = "";
-
-if ($cate = 'category1') {
-    $category = "Children's book";
-} elseif (isset($_POST['category2'])) {
-    $category = "Business book";
-} elseif (isset($_POST['category3'])) {
-    $category = "IT book";
-} else {
-    $category = "";
 }
 
-if ($category = ""){
+if ($cate == 'category1') {
+    $query = "SELECT * FROM books WHERE category = 'Children\'s book' ";
+} elseif ($cate == 'category2') {
+    $query = "SELECT * FROM books WHERE category = 'Business book' ";
+} elseif ($cate == 'category3') {
+    $query = "SELECT * FROM books WHERE category = 'IT book' ";
+} else {
     $query = "SELECT * FROM books";
-} else {
-    $query = "SELECT * FROM books WHERE category = '" . $category . "'";
 }
-//$query = "SELECT * FROM books";
+
 $result = mysqli_query($connection, $query);
 
 while ($row = mysqli_fetch_assoc($result)) {
