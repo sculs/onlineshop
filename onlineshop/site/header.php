@@ -11,6 +11,7 @@
     <!-- Bootstrap core CSS -->
     <link href="../css/bootstrap.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../css/font-awesome.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="../css/shop-homepage.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
@@ -62,7 +63,8 @@
         </div>
 
         <div class="cart">
-            <button class="btn btn-outline-info">Shopping Cart</button>
+            <i class="material-icons " style="font-size:40px;color:#17a2b8">add_shopping_cart</i>
+
         </div>
     </div>
 </div>

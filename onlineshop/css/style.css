@@ -26,6 +26,8 @@
 
 
 .cart {
+    width: 120px;
+    height: 40px;
     border: 3px solid #17a2b8;
     border-radius: 5px;
     margin-left: auto;
