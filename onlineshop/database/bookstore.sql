@@ -40,7 +40,7 @@ CREATE TABLE `books` (
 --
 
 INSERT INTO `books` (`bookid`, `title`, `price`, `link`, `category`, `description`) VALUES
-(101, 'Goodnight Moon', 60, '../img/products/book101-1.jpg', 'Children\'s book', 'by Margaret Wise Brown  (Author), Clement Hurd (Illustrator), January 3, 2006'),
+(101, 'Goodnight Moon', 60, '../img/products/-book101-1.jpg', 'Children\'s book', 'by Margaret Wise Brown  (Author), Clement Hurd (Illustrator), January 3, 2006'),
 (102, 'Pippi Longstocking', 149, '../img/products/book102-1.jpg', 'Children\'s book', 'by Astrid Lindgren(Author), Ingrid Vang Nyman(Author), Translated, September 2, 20'),
 (103, 'The Giving Tree', 95, '../img/products/book103-1.jpg', 'Children\'s book', 'by Shel Silverstein  (Author), February 18, 2014, Hardcover'),
 (104, 'The Frog and Toad', 72, '../img/products/book104-1.jpg', 'Children\'s book', 'by Arnold Lobel  (Author, Illustrator), May 25, 2004'),
