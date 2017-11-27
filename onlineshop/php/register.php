@@ -43,7 +43,24 @@ if (count($errors) == 0) {
         header('location: ../index.html');
 
         //================================
-        sendEmail($email);
+        $to = $email;
+        $subject = "Welcome";
+        $message = " 
+        Hello, '.$name.' ,
+        
+        Thanks for registering Bookstore!
+        Welcome to join our book store, the sea of knowledge. Below are your login information,
+        please keep them safe.
+
+        E-mail: '.$email.';
+        Password: '.$password.';
+        ";
+
+        $headers = "From: teamworkbookstore@gmail.com" . "\r\n";
+        $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+
+        mail($to, $subject, $message, $headers); // in spam mail-box.
+        echo "Mail Sent.<br>";
 
     } else {
         echo '<script>alert("Email is already taken!");
@@ -60,14 +77,19 @@ if (count($errors) == 0) {
 function sendEmail($email){
 //    $to = "liusongscu@gmail.com";
     $to = $email;
-    $subject = "Thank you for registering Bookstore";
-    $message = "
-        Hello '.$name.',
+    $subject = "Welcome";
+    $message = " 
+        Hello, '.$name.' ,
         
+        Thanks for registering Bookstore!
+        Welcome to join our book store, the sea of knowledge. Below are your login information,
+        please keep them safe.
+
+        E-mail: '.$email.';
+        Password: '.$password.';
+    
     ";
-    $from = "teamworkbookstore@gmail.com"; // just a text which written of email-address.
-    $headers = "From: ". $from . "\r\n";
-//    $headers = "MIME-Version: 1.0" . "\r\n";
+    $headers = "From: teamworkbookstore@gmail.com" . "\r\n";
     $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 
     mail($to, $subject, $message, $headers); // in spam mail-box.
