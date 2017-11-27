@@ -44,10 +44,13 @@ while ($row = mysqli_fetch_assoc($result)) {
                 
             <div class="card-footer">
                 <div class="text-center">
-                    <a href="#" class="btn btn-primary">
+                    
+                    <a href="../php/addToCart.php?productID='.$row['bookid'].'"
+                                data-toggle="modal" data-target="#checkOutCart">
                         <span style="font-size: 25px">+</span>
                         &nbsp;&nbsp;&nbsp;Add to Cart
                     </a>
+                    
                 </div>
             </div>
         </div>
