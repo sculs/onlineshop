@@ -21,7 +21,7 @@
 
                 <tr class="table-info">
                     <td class="category-item">
-                        <a href="childrensbooks.php?cate=category1">
+                        <a href="categories.php?cate=category1">
                             Children's books
                         </a>
                     </td>
@@ -30,14 +30,14 @@
 
                 <tr class="table-info">
                     <td class="category-item">
-                        <a href="childrensbooks.php?cate=category2">
+                        <a href="categories.php?cate=category2">
                             Business Books
                         </a>
                     </td>
                 </tr>
                 <tr class="table-info">
                     <td class="category-item">
-                        <a href="childrensbooks.php?cate=category3">
+                        <a href="categories.php?cate=category3">
                             IT Books
                         </a>
                     </td>

@@ -16,6 +16,7 @@
     <link href="../css/shop-homepage.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
     <script src="../js/jquery-3.2.1.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </head>
 
@@ -31,7 +32,7 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
 
-                <a class="nav-link" href="Login.html">Log in
+                <a class="nav-link" href="login.php">Log in
                     <span class="sr-only">(current)</span>
                 </a>
                 </li>
