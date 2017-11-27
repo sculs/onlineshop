@@ -18,18 +18,25 @@ while ($row = mysqli_fetch_assoc($result)) {
                 <h4 class="card-title">
                 <a href="#">'.$row['title'].'</a>
                 </h4>
-                <h6><i>'.$row['description'].'</i></h6>
-                <h5>'.$row['category'].'</h5>
+                <p style="font-size: 0.9rem">'.$row['description'].'</p>
+                <h6>'.$row['category'].'</h6>
                 <h5 class="btn btn-outline-success">'.number_format($row['price']).' kr</h5>
                 
-                <p class="card-text"><i>'.$row['description'].'</i></p>
                 </div>
                 
+                
                 <div class="card-footer">
-                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                    <div class="mx-auto">
+                        <a href="#" class="btn btn-primary">
+                            <span style="font-size: 25px">+</span>
+                            &nbsp;&nbsp;&nbsp;Add to Cart
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
+        
+        
     ';
 }
 

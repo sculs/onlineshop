@@ -38,29 +38,49 @@ if (count($errors) == 0) {
         echo '<script>alert("Welcome '.$name.', You are successfully registered. Log in and shopping.");
         history.back();</script>';
 
-        $_SESSION['status'] = "login";
+        $_SESSION['status'] = "";
         $_SESSION['email'] = "$email";
         header('location: ../index.html');
 
-        //================================
+        // Send Email to customer ================================
         $to = $email;
         $subject = "Welcome";
         $message = " 
-        Hello, '.$name.' ,
+        Hello, $name,</br></br>
         
-        Thanks for registering Bookstore!
-        Welcome to join our book store, the sea of knowledge. Below are your login information,
-        please keep them safe.
+        Thanks for registering Bookstore!</br>
+        Welcome to join our book store, the sea of knowledge. </br>
+        Below are your login information, please keep them safe.</br></br>
 
-        E-mail: '.$email.';
-        Password: '.$password.';
+        E-mail: $email;</br>
+        Password: $password_1;</br></br>
+        
+        Best wishes,</br>
+        Book Store</br>
         ";
 
-        $headers = "From: teamworkbookstore@gmail.com" . "\r\n";
+        $headers = "From: no-reply@bookstore.com" . "\r\n";
         $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 
         mail($to, $subject, $message, $headers); // in spam mail-box.
         echo "Mail Sent.<br>";
+        // End of Email to customer ================================
+
+
+        // Send Email to admin ================================
+        $toAdmin = "teamworkbookstore@gmail.com";
+        $subjectAdmin = "new registed";
+        $messageAdmin = "
+        A new user has registered, Here are the information:<br><br>
+        Name: $name;<br>
+        Email: $email;<br>
+        Contact number: $number;<br><br>
+        Sent from PHP        
+        ";
+        $headersAdmin = "From: no-reply@bookstore.com" . "\r\n";
+        $headersAdmin .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+        mail($toAdmin, $subjectAdmin, $messageAdmin, $headersAdmin); // in spam mail-box.
+        // End of Email to admin ================================
 
     } else {
         echo '<script>alert("Email is already taken!");

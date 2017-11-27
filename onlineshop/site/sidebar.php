@@ -3,6 +3,7 @@
 
     <h1 class="my-4">Shop Name</h1>
     <div class="list-group">
+        <a href="products.php" class="list-group-item" name="">All Categorys</a>
         <a href="products.php" class="list-group-item" name="category1">Children's books</a>
         <a href="products.php" class="list-group-item" name="category2">Business Books</a>
         <a href="products.php" class="list-group-item" name="category3">IT Books</a>
