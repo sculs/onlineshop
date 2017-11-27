@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="Sara, Song" content="online shop">
-    <title>Welcom to Booksotre</title>
+    <title>Welcome to our Book Store</title>
 
     <!-- Bootstrap core CSS -->
     <link href="../css/bootstrap.css" rel="stylesheet">
@@ -17,6 +17,8 @@
     <link rel="stylesheet" href="../css/style.css">
     <script src="../js/jquery-3.2.1.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
 
 </head>
 
@@ -25,7 +27,12 @@
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-        <a class="navbar-brand" href="index.php">Book Store</a>
+        <a class="navbar-brand" href="index.php">
+            <img class="img-rounded"
+                    style="height: 35px; width: auto; background-color: #e4e4e4"
+                    src="../img/logo.png" alt="Bookstore">
+            Book Store
+        </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -37,7 +44,7 @@
                 </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="Register.html">Register</a>
+                    <a class="nav-link" href="register.php">Register</a>
                 </li>
 
                 <li class="nav-item">
@@ -47,3 +54,6 @@
         </div>
     </div>
 </nav>
+
+<!--// Modal for check out at any time-->
+<?php include "checkout.php" ?>

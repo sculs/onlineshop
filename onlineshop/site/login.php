@@ -4,8 +4,6 @@
 <!-- Page Content -->
 <div class="container">
 
-    <?php include "carousel.php" ?>
-    <?php include "searchBar.php" ?>
 
     <div class="row">
 
@@ -22,13 +20,13 @@
                     <h1 class="text-center mb-5">Log in</h1>
                     <form action="php/login.php" method="post">
                         <div class="form-group">
-                            <label for="inputEmail-l">Email:</label>
+                            <label for="inputEmail-l">Email:<sup class="warn">*</sup></label>
                             <input type="email" class="form-control"
                                    id="inputEmail-l" placeholder="Enter email" name="email">
                         </div>
 
                         <div class="form-group">
-                            <label for="inputPassword-l">Password:</label>
+                            <label for="inputPassword-l">Password:<sup class="warn">*</sup></label>
                             <input type="password" class="form-control"
                                    id="inputPassword-l" placeholder="Enter password" name="password">
                         </div>
@@ -36,6 +34,7 @@
                         <div class="">
                             <input class="btn btn-large btn-success" type="submit"
                                    value="Sign in" />
+                            <sup class="warn">*</sup>Required field
                         </div>
                     </form>
                     </div>

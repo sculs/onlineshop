@@ -2,7 +2,10 @@
 <div class="col-lg-3">
 
     <div class="">
-        <h1 class="my-4">Shop Name</h1>
+        <div class="mt-1">
+            <img style="width: 100%; height: auto; background-color: #f4f4f4"
+                    src="../img/logo.png" alt="Bookstore">
+        </div>
         <div class="">
 
             <table class="table

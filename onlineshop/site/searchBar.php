@@ -15,6 +15,10 @@
                         </div>
                     </div>
                 </form>
+                <small style="font-size: 0.7rem; color: #aaaaaa; margin-left: 2%">
+                    <i>Try to type in Java, or 2014, or translated,
+                        or whatever you are interested, and Press Enter</i>
+                </small>
             </div>
 
             <div class="cart">
