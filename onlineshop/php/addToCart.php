@@ -5,8 +5,9 @@ include('db.php');
 
 $customerID = $_SESSION['email'];
 $productID = $_GET['productID'];
-$productPrice = $_SESSION['totalPrice'];
+$totalPrice = $_SESSION['totalPrice'];
 $itemCount = $_SESSION['itemCount'];
+$shopStatus = "active";
 
 // if customer is not logged in
 if (empty($customerID)) {
@@ -24,6 +25,12 @@ $result1 = mysqli_query($connection, $query1);
 $row1 = mysqli_fetch_assoc($result1);
 // order number consists of current time + user ID + a 3 random number
 $orderNumber = date("Ymdhis").$row1['userid'].rand(100,1000);
+$_SESSION['orderNumber'] = $orderNumber;
+
+//Create an array to record all products user har added
+//$cartArray = array();
+//$_SESSION['$cartArray[\'$itemCount\']'] = $orderNumber;
+//echo $cartArray[0];
 
 // Get the price of added item;
 $query2 = "SELECT * FROM books WHERE bookid = '".$productID."' ";
@@ -31,25 +38,27 @@ $result2 = mysqli_query($connection, $query2);
 $row2 = mysqli_fetch_assoc($result2);
 $productPrice = $row2['price'];
 
-// Insert added Item to database;
-$query3 = "INSERT INTO sale (bookid, userid, amount, orderNumber, productPrice) 
-                  VALUES ('$productID', '$customerID', 1, '$orderNumber', '$productPrice');";
+
+$query3 = "SELECT * FROM sale WHERE shopStatus = 'active' AND bookid = '".$productID."' ";
 $result3 = mysqli_query($connection, $query3);
-//echo $productID.'<br>';
-//echo $orderNumber.'<br>';
-//
-//$query4 = "SELECT * FROM sale WHERE bookid = '".$productID."' ";
-//$result4 = mysqli_query($connection, $query4);
-//$row4 = mysqli_fetch_assoc($result4);
-//$xxx = $row4['orderNumber'];
-//echo $xxx.'<br>';
+$row3 = mysqli_fetch_assoc($result3);
+$amount = $row3['amount'];
+
+// Insert added Item to database;
+if (count($row3) > 0) {
+    $query4 = "UPDATE sale SET amount = '".$amount."' + 1 
+    WHERE bookid = '".$productID."' AND shopStatus = '".$shopStatus."'";
+} else {
+    $query4 = "INSERT INTO sale (bookid, userid, amount, orderNumber, productPrice, shopStatus) 
+          VALUES ('$productID', '$customerID', 1, '$orderNumber', '$productPrice', '$shopStatus');";
+}
+$result4 = mysqli_query($connection, $query4);
 
 
 $_SESSION["itemCount"] += 1;
 $_SESSION['totalPrice'] += $productPrice;
 
-
-header("Location: ../checkout.php?productID=$productID");
+header("Location: ../index.php");
 exit();
 
 

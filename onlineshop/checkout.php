@@ -13,33 +13,53 @@
                     <h4 class="">Check out</h4>
                     <div class="">
                         <?php
-                        require('../php/db.php');
-                        $productID = $_GET['productID'];
+                        require('php/db.php');
                         global $connection;
-                        $query = "SELECT * FROM books WHERE bookid ='".$productID."' ";
+
+                        //with shopStatus of "active" to loop all products the user added
+                        $query = "SELECT * FROM sale WHERE shopStatus ='active' ";
                         $result = mysqli_query($connection, $query);
-                        echo '<hr>';
+
+                        $x=0;
+
                         while ($row = mysqli_fetch_assoc($result)) {
+                            $bookAdded = $row['bookid'];
+                            $query2 = "SELECT * FROM books WHERE bookid ='" . $bookAdded . "'";
+                            $result2 = mysqli_query($connection, $query2);
+                            $row2 = mysqli_fetch_assoc($result2);
+                            $x += $row['amount'];
+                            $payPrice += ($row2['price'] * $row['amount']);
+
+                            // List the book that selected from database
+                            echo '<hr>';
                             echo '
-                        <div class="row">
-                        <div class="col">
-                            <img height="160" width="auto" src="'.$row['link'].'" alt="'.$row['title'].'">
-                        </div>
-                        <div class="col-8 my-auto">
-                            <h5>'.$row['title'].'</h5>
-                            <h6>'.$row['category'].'</h6>
-                            <h4>'.number_format($row['price']).' kr</h4>
-                        </div>
-                        <div class="col my-auto">
-                        <div class="row">
-                            <span><i class="material-icons">indeterminate_check_box</i></span>
-                            <span class="cart-st"><p>'.$_SESSION['itemCount'].'</p></span>
-                            <span><i class="material-icons">add_box</i></span>
+                            <div class="row">
+                            <div class="col">
+                                <img height="160" width="auto" src="' . $row2['link'] . '" 
+                                alt="' . $row['title'] . '">
                             </div>
-                        </div>
-                        </div>
-                        <hr>
-                        ';
+                            <div class="col-8 my-auto">
+                                <h5>' . $row2['title'] . '</h5>
+                                <h6>' . $row2['category'] . '</h6>
+                                <h4>' . number_format($row2['price']) . ' kr</h4>
+                            </div>
+                            
+                            <div class="col my-auto">
+                            <div class="row">                           
+                                <span>
+                                    <i class="material-icons">indeterminate_check_box</i>
+                                </span>
+                                <span class="cart-st">
+                                    <p>' . $row['amount'] . '</p>
+                                </span>
+                                <span>
+                                    <i class="material-icons">add_box</i>
+                                </span>
+                                </div>
+                            </div>
+                            </div>
+                            <hr>
+                            ';
                         }
                         // =================================================
 
@@ -48,12 +68,12 @@
                             <div class="row">
                             
                             <div class="col-4 text-center">
-                                <h5><b style="color: #cf0000">'.$_SESSION['itemCount'].'</b>
+                                <h5><b style="color: #cf0000">'.$x.'</b>
                                 &nbsp;&nbsp; books </h5>
                             </div>
                             <div class="col-4">
                                 <h5>Total Price: &nbsp;&nbsp;
-                                <b style="color: #cf0000">'.$_SESSION['totalPrice']. ' </b>kr</h5>
+                                <b style="color: #cf0000">'.$payPrice. ' </b>kr</h5>
                             </div>
                             <div class="col-4 text-right sumUp">
                                 <button type="button" class="btn btn-secondary">

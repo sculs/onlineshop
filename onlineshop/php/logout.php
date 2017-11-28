@@ -7,7 +7,7 @@
     $_SESSION['name'] = '';
      session_unset();
 
-    echo '<script>alert("You have logged out!"); history.back();</script>';
+//    echo '<script>alert("You have logged out!"); history.back();</script>';
 
     header("Location: ../index.php");
     exit();

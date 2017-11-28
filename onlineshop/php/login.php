@@ -28,6 +28,7 @@ if (count($errors) == 0) {
         $row = mysqli_fetch_assoc($result);
         $_SESSION['name'] = $row['name'];
         $_SESSION['userid'] = $row['userid'];
+        $_SESSION['itemCount'] = 0;
 
         header('Location: ../index.php');
 
