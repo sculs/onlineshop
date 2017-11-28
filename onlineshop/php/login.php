@@ -4,8 +4,8 @@ require('db.php');
 
 $errors = array();
 
-$email    = mysqli_real_escape_string($connection, $_POST['email-l']);
-$password = mysqli_real_escape_string($connection, $_POST['password-l']);
+$email    = mysqli_real_escape_string($connection, $_POST['email']);
+$password = mysqli_real_escape_string($connection, $_POST['password']);
 
 if (empty($email)) {
     array_push($errors, "Email is required");
@@ -26,12 +26,11 @@ if (count($errors) == 0) {
         echo '<script>alert("You are logged in, Have a nice shopping!"); history.back();</script>';
         $_SESSION['email'] = $email;
         $_SESSION['status'] = "login";
-        header('location: ../index.html');
+        header('Location: ../site/index.php');
         //exit();
     }else {
-        array_push($errors, "Incorrect email or password, please try again!");
-        //echo '<script>alert("Incorrect email or password, please try again!");
-        //history.back();</script>';
+        echo '<script>alert("Incorrect email or password, please try again!");
+        history.back();</script>';
     }
 }
 

@@ -1,19 +1,22 @@
 <?php
 session_start();
-require('../php/db.php');
+require ('../php/db.php');
 
 $cate = "";
 if ($_GET['cate']) {
     $cate = $_GET['cate'];
+    if ($cate == 'category1') {
+        $query = "SELECT * FROM books WHERE category = 'Children\'s book' ";
+    } elseif ($cate == 'category2') {
+        $query = "SELECT * FROM books WHERE category = 'Business book' ";
+    } elseif ($cate == 'category3') {
+        $query = "SELECT * FROM books WHERE category = 'IT book' ";
+    } else {
+        echo "Error, try again!";
+        header("Location: index.php");
+    }
 }
-
-if ($cate == 'category1') {
-    $query = "SELECT * FROM books WHERE category = 'Children\'s book' ";
-} elseif ($cate == 'category2') {
-    $query = "SELECT * FROM books WHERE category = 'Business book' ";
-} elseif ($cate == 'category3') {
-    $query = "SELECT * FROM books WHERE category = 'IT book' ";
-} else {
+else {
     $query = "SELECT * FROM books";
 }
 
@@ -23,7 +26,7 @@ while ($row = mysqli_fetch_assoc($result)) {
 
     echo '
         <div class="col-lg-4 col-md-6 mb-4">
-        <div class="card h-100">
+        <div class="card h-100 products">
             <a href="#"><img class="card-img-top" 
             src="'.$row['link'].'" alt="'.$row['title'].'"></a>
             
@@ -40,22 +43,31 @@ while ($row = mysqli_fetch_assoc($result)) {
                     <h5 class="btn btn-outline-success">'.number_format($row['price']).' kr</h5>
                 </div>
             </div>
-                
-                
+            
             <div class="card-footer">
                 <div class="text-center">
-                    
+                
                     <a href="../php/addToCart.php?productID='.$row['bookid'].'"
-                                data-toggle="modal" data-target="#checkOutCart">
+                        class="btn btn-primary" >
                         <span style="font-size: 25px">+</span>
                         &nbsp;&nbsp;&nbsp;Add to Cart
                     </a>
-                    
                 </div>
             </div>
         </div>
     </div>
     ';
 }
+
+
+echo '
+<script>
+function scrAlert() {
+    alert("Please log in before shopping.");
+    history.back();
+}
+</script>
+';
+
 
 ?>

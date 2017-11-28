@@ -25,9 +25,10 @@ $result = mysqli_query($connection, $query);
 
 if (mysqli_num_rows($result) > 0) {
     while($row = mysqli_fetch_assoc($result)) {
+
         echo '
         <div class="col-lg-4 col-md-6 mb-4">
-        <div class="card h-100">
+        <div class="card h-100 products">
             <a href="#"><img class="card-img-top" 
             src="'.$row['link'].'" alt="'.$row['title'].'"></a>
             
@@ -44,11 +45,12 @@ if (mysqli_num_rows($result) > 0) {
                     <h5 class="btn btn-outline-success">'.number_format($row['price']).' kr</h5>
                 </div>
             </div>
-                
-                
+            
             <div class="card-footer">
                 <div class="text-center">
-                    <a href="#" class="btn btn-primary">
+                
+                    <a href="../php/addToCart.php?productID='.$row['bookid'].'"
+                        class="btn btn-primary" >
                         <span style="font-size: 25px">+</span>
                         &nbsp;&nbsp;&nbsp;Add to Cart
                     </a>
@@ -58,6 +60,7 @@ if (mysqli_num_rows($result) > 0) {
     </div>
     ';
     }
+
 
 } else {
     echo '<h2>No Result!</h2>';

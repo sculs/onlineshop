@@ -22,9 +22,8 @@ global $connection;
 $query1 = "SELECT * FROM users WHERE email = '".$customerID."' ";
 $result1 = mysqli_query($connection, $query1);
 $row1 = mysqli_fetch_assoc($result1);
-$d=strtotime(time,now); // Get current time
-// order number consists of current time ad user ID
-$orderNumber = date("Ymdhi", $d). $row1['userid'];
+// order number consists of current time + user ID + a 3 random number
+$orderNumber = date("Ymdhis").$row1['userid'].rand(100,1000);
 
 // Get the price of added item;
 $query2 = "SELECT * FROM books WHERE bookid = '".$productID."' ";
@@ -33,14 +32,24 @@ $row2 = mysqli_fetch_assoc($result2);
 $productPrice = $row2['price'];
 
 // Insert added Item to database;
-$query3 = "INSERT INTO sale (bookid, user, itemCount, orderNumber, productPrice, storage) 
-                  VALUES ('$productID', '$customerID', 1, '$orderNumber', '$productPrice', -1);";
+$query3 = "INSERT INTO sale (bookid, userid, amount, orderNumber, productPrice) 
+                  VALUES ('$productID', '$customerID', 1, '$orderNumber', '$productPrice');";
+$result3 = mysqli_query($connection, $query3);
+//echo $productID.'<br>';
+//echo $orderNumber.'<br>';
+//
+//$query4 = "SELECT * FROM sale WHERE bookid = '".$productID."' ";
+//$result4 = mysqli_query($connection, $query4);
+//$row4 = mysqli_fetch_assoc($result4);
+//$xxx = $row4['orderNumber'];
+//echo $xxx.'<br>';
+
 
 $_SESSION["itemCount"] += 1;
 $_SESSION['totalPrice'] += $productPrice;
 
 
-//header("Location: ../index.html");
+header("Location: ../site/checkout.php?productID=$productID");
 exit();
 
 

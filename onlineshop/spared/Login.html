@@ -11,10 +11,10 @@
     <title>Log in</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="css/shop-homepage.css" rel="stylesheet">
+    <link href="../css/shop-homepage.css" rel="stylesheet">
 
 </head>
 
@@ -30,12 +30,12 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
 
-                    <a class="nav-link" href="Account.html">Account
+                    <a class="nav-link" href="Login.html">Log in
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="ShoppingCart.html">ShoppingCart</a>
+                    <a class="nav-link" href="Register.html">Register</a>
                 </li>
 
                 <li class="nav-item">
@@ -46,24 +46,57 @@
     </div>
 </nav><div>
 
-    <!-- Page Content -->
+<!-- Page Content -->
 
-    <!-- /.col-lg-3 -->
+        <!-- /.col-lg-3 -->
 
-    <style>
+<div><style>input[type=text] {
+    width: 20%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+input[type=password] {
+    width: 20%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;    }
 
 
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    padding: 12px 20px;
+}
 
 
-    </style>
-        <div>
+</style><center><br>
+    <form action="../php/login.php" method="post">
+
+        <label for="Email">Email:</label><br>
+        <input type="text" id="Email" name="email-l"><br>
+        <label for="Password">Password:</label><br>
+        <input type="password" id="Password" name="password-l"><br>
+
+        <input class="btn btn-large btn-success" type="submit" value="Sign in" /><br>
+        <a href="forgetpass.php">Forget password?</a>
+    </form><br>
+
+
+    </center>
 
     </div>
     <!-- /.col-lg-9 -->
 
-<container><center>
-<div>Text about yor account</div></center>
-</container>
+</div>
 <!-- /.row -->
 
 </div>
@@ -78,8 +111,8 @@
 </footer>
 
 <!-- Bootstrap core JavaScript -->
-<script src="vendor/jquery/jquery.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../vendor/jquery/jquery.min.js"></script>
+<script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 </body>
 

@@ -18,17 +18,19 @@
                 <div class="container">
                     <div class="my-5 py-5 mx-5">
                     <h1 class="text-center mb-5">Log in</h1>
-                    <form action="php/login.php" method="post">
+                    <form action="../php/login.php" method="post">
                         <div class="form-group">
                             <label for="inputEmail-l">Email:<sup class="warn">*</sup></label>
                             <input type="email" class="form-control"
-                                   id="inputEmail-l" placeholder="Enter email" name="email">
+                                   id="inputEmail-l" placeholder="Enter email"
+                                   name="email" required>
                         </div>
 
                         <div class="form-group">
                             <label for="inputPassword-l">Password:<sup class="warn">*</sup></label>
                             <input type="password" class="form-control"
-                                   id="inputPassword-l" placeholder="Enter password" name="password">
+                                   id="inputPassword-l" placeholder="Enter password"
+                                   name="password" required>
                         </div>
 
                         <div class="">
