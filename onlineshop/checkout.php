@@ -17,7 +17,7 @@
                         global $connection;
 
                         //with shopStatus of "active" to loop all products the user added
-                        $query = "SELECT * FROM sale WHERE shopStatus ='active' ";
+                        $query = "SELECT * FROM sale WHERE shopStatus ='active' AND amount > 0 ";
                         $result = mysqli_query($connection, $query);
 
                         $x=0; $userid='';

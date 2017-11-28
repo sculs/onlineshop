@@ -10,9 +10,9 @@ if (!isset($_SESSION['itemCount'])) {
     $_SESSION['itemCount'] = 0;
 }
 //Delete the lines below before submit
-print ("<pre>");
-print_r($_SESSION);
-print ("</pre>");
+//print ("<pre>");
+//print_r($_SESSION);
+//print ("</pre>");
 ?>
 <!DOCTYPE html>
 <html lang="en">

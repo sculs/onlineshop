@@ -28,6 +28,9 @@ elseif (count($row1) > 1) {
 }
 $result2 = mysqli_query($connection, $query2);
 
+// Delete all orders that has only 0 amount
+$query3 = "DELETE FROM sale WHERE amount = 0 AND shopStatus = 'active' ";
+mysqli_query($connection, $query3);
 
 //$itemCount = $row['itemCount'];
 //$orderNumber = $row['orderNumber'];
