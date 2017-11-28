@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 28, 2017 at 10:36 PM
+-- Generation Time: Nov 29, 2017 at 12:14 AM
 -- Server version: 5.6.35
 -- PHP Version: 7.1.8
 
@@ -42,7 +42,7 @@ CREATE TABLE `books` (
 
 INSERT INTO `books` (`bookid`, `title`, `price`, `link`, `category`, `description`, `storage`) VALUES
 (101, 'Goodnight Moon', 60, 'img/products/book101-1.jpg', 'Children\'s book', 'by Margaret Wise Brown  (Author), Clement Hurd (Illustrator), January 3, 2006', '100'),
-(102, 'Pippi Longstocking', 149, 'img/products/book102-1.jpg', 'Children\'s book', 'by Astrid Lindgren(Author), Ingrid Vang Nyman(Author), Translated, September 2, 20', '100'),
+(102, 'Pippi Longstocking', 149, 'img/products/book102-1.jpg', 'Children\'s book', 'by Astrid Lindgren(Author), Ingrid Vang Nyman(Author), Translated, September 2, 20', '97'),
 (103, 'The Giving Tree', 95, 'img/products/book103-1.jpg', 'Children\'s book', 'by Shel Silverstein  (Author), February 18, 2014, Hardcover', '98'),
 (104, 'The Frog and Toad', 72, 'img/products/book104-1.jpg', 'Children\'s book', 'by Arnold Lobel  (Author, Illustrator), May 25, 2004', '100'),
 (105, 'I Want My Hat Back', 129, 'img/products/book105-1.jpg', 'Children\'s book', 'by Jon Klassen (Author, Illustrator), September 27, 2011', '95'),
@@ -90,7 +90,7 @@ INSERT INTO `sale` (`serialNumber`, `shopStatus`, `amount`, `orderNumber`, `user
 (115, 'paid', 2, '20171128093512167944', 'liusongscu@gmail.com', 105, '2017-11-28 21:35:12', 129),
 (116, 'paid', 2, '20171128100707167565', 'liusongscu@gmail.com', 103, '2017-11-28 22:07:07', 95),
 (117, 'paid', 3, '20171128100918167991', 'liusongscu@gmail.com', 301, '2017-11-28 22:09:18', 509),
-(118, 'active', 1, '20171128103004167833', 'liusongscu@gmail.com', 102, '2017-11-28 22:30:04', 149);
+(119, 'paid', 3, '20171128110958174180', 'liusongscu@gmail.com', 102, '2017-11-28 23:09:58', 149);
 
 -- --------------------------------------------------------
 
@@ -115,7 +115,8 @@ INSERT INTO `users` (`userid`, `name`, `number`, `email`, `password`) VALUES
 (170, 'aaa', 'aaa', 'aaa@aaa.bc', '47bce5c74f589f4867dbd57e9ca9f808'),
 (171, 'aaa', 'aaa', 'aaa@aaa.bcd', '4124bc0a9335c27f086f24ba207a4912'),
 (172, 'aaa', 'aaa', 'aaa@aaa.bccdgfeav', '47bce5c74f589f4867dbd57e9ca9f808'),
-(173, 'aaa', 'aaa', 'aaaaa@aaa.aaaaaa', '47bce5c74f589f4867dbd57e9ca9f808');
+(173, 'aaa', 'aaa', 'aaaaa@aaa.aaaaaa', '47bce5c74f589f4867dbd57e9ca9f808'),
+(174, 'Song', '11111111', 'liusongscu@gmail.com', 'c8837b23ff8aaa8a2dde915473ce0991');
 
 --
 -- Indexes for dumped tables
@@ -152,12 +153,12 @@ ALTER TABLE `books`
 -- AUTO_INCREMENT for table `sale`
 --
 ALTER TABLE `sale`
-  MODIFY `serialNumber` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=119;
+  MODIFY `serialNumber` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=125;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `userid` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=174;
+  MODIFY `userid` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=175;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
