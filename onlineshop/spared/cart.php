@@ -7,8 +7,8 @@ $itemCount = $_SESSION['itemCount'];
 
 // When customer har not logged in
 if (empty($customerID)) {
-    echo '<script>alert("Log in to check your cart.");
-        history.back();</script>';
+//    echo '<script>alert("Log in to check your cart.");
+//        history.back();</script>';
     header("Location: ../index.php");
     exit();
 }

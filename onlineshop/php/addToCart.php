@@ -11,8 +11,8 @@ $shopStatus = "active";
 
 // if customer is not logged in
 if (empty($customerID)) {
-    echo '<script>alert("Please log in before shopping.");
-        history.back();</script>';
+//    echo '<script>alert("Please log in before shopping.");
+//        history.back();</script>';
     header("Location: ../login.php");
     exit();
 }
@@ -23,14 +23,11 @@ global $connection;
 $query1 = "SELECT * FROM users WHERE email = '".$customerID."' ";
 $result1 = mysqli_query($connection, $query1);
 $row1 = mysqli_fetch_assoc($result1);
+
 // order number consists of current time + user ID + a 3 random number
 $orderNumber = date("Ymdhis").$row1['userid'].rand(100,1000);
 $_SESSION['orderNumber'] = $orderNumber;
 
-//Create an array to record all products user har added
-//$cartArray = array();
-//$_SESSION['$cartArray[\'$itemCount\']'] = $orderNumber;
-//echo $cartArray[0];
 
 // Get the price of added item;
 $query2 = "SELECT * FROM books WHERE bookid = '".$productID."' ";
@@ -58,7 +55,7 @@ $result4 = mysqli_query($connection, $query4);
 $_SESSION["itemCount"] += 1;
 $_SESSION['totalPrice'] += $productPrice;
 
-header("Location: ../index.php");
+header("Location: ../checkout.php");
 exit();
 
 

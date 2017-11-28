@@ -101,7 +101,8 @@
 }
 
 .products {
-    box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.2)
+    box-shadow: 4px 4px 4px 0 rgba(0, 0, 0, 0.2);
+    height: 660px;
 }
 
 .sumUp a{
@@ -112,3 +113,4 @@
     color: #ffffff;
     text-decoration: none ;
 }
+

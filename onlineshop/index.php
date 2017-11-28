@@ -31,6 +31,7 @@
                 }
                 $result = mysqli_query($connection, $query);
                 ?>
+
                 <?php include "site/products.php" ?>
 
 

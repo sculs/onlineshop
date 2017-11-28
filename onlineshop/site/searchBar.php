@@ -1,7 +1,9 @@
 
 <!-- Search function-->
 <?php
-$_SESSION['itemCount'] ?? 0;
+if (!isset($_SESSION['itemCount'])) {
+    $_SESSION['itemCount'] = 0;
+}
 ?>
 <div class="searchBar">
 <div class="container my-1 py-3 ">

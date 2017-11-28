@@ -16,34 +16,36 @@ if (empty($email)) { array_push($errors, "Email is required"); }
 if (empty($password_1)) { array_push($errors, "Password is required"); }
 if (empty($number)) { array_push($errors, "Contact number is required"); }
 if ($password_1 != $password_2) {
-    array_push($errors, "Passwords do not match");
+    echo '<script>alert("Re-enter the same password!");
+        history.back();</script>';
+    // header('Location: ../register.php');
+    exit();
 }
 
 if (count($errors) == 0) {
 
     // Extract email from database;
     $email = strtolower($email); // lowercase;
-    $sql = "SELECT * FROM users WHERE email =  '" .$email. "'";
-    $query = mysqli_query($connection, $sql);
-    $row = mysqli_fetch_assoc($query);
+    $sql1 = "SELECT * FROM users WHERE email =  '" .$email. "'";
+    $query1 = mysqli_query($connection, $sql1);
+    $row = mysqli_fetch_assoc($query1);
     $dbEmail = $row['email'];
 
     if (empty($dbEmail)) {
         $password = md5($password_1);//encrypt the password before saving in the database
-        $sql = "INSERT INTO users (name, number, email, password) 
+        $sql2 = "INSERT INTO users (name, number, email, password) 
                 VALUES('$name', '$number', '$email', '$password')";
-        mysqli_query($connection, $sql);
-//        mysqli_close($connection);
+        mysqli_query($connection, $sql2);
 
-        echo '<script>alert("Welcome '.$name.', You are successfully registered. Log in and shopping.");
-        history.back();</script>';
+//        echo '<script>alert("Welcome '.$name.', You are successfully registered. Log in and shopping.");
+//        history.back();</script>';
 
-        $_SESSION['status'] = "";
-        $_SESSION['email'] = "$email";
-        header('location: ../index.php');
+        $_SESSION['email'] = $email;
+
 
         // Send Email to customer ================================
         $to = $email;
+        $from = "no-reply@bookstore.com";
         $subject = "Welcome";
         $message = " 
         Hello, $name,</br></br>
@@ -59,28 +61,32 @@ if (count($errors) == 0) {
         Book Store</br>
         ";
 
-        $headers = "From: no-reply@bookstore.com" . "\r\n";
+        $headers = "From:". ".$from." . "\r\n";
         $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 
         mail($to, $subject, $message, $headers); // in spam mail-box.
-        echo "Mail Sent.<br>";
+        //echo "Mail Sent.<br>";
         // End of Email to customer ================================
 
 
         // Send Email to admin ================================
         $toAdmin = "teamworkbookstore@gmail.com";
-        $subjectAdmin = "new registed";
+        $fromAdmin = "no-reply@bookstore.com";
+        $subjectAdmin = "new registered";
         $messageAdmin = "
-        A new user has registered, Here are the information:<br><br>
-        Name: $name;<br>
-        Email: $email;<br>
-        Contact number: $number;<br><br>
-        Sent from PHP        
-        ";
-        $headersAdmin = "From: no-reply@bookstore.com" . "\r\n";
+            A new user has registered, Here are the information:<br><br>
+            Name: $name;<br>
+            Email: $email;<br>
+            Contact number: $number;<br><br>
+            Sent from PHP
+            ";
+        $headersAdmin = "From: $from" . "\r\n";
         $headersAdmin .= "Content-type:text/html;charset=UTF-8" . "\r\n";
         mail($toAdmin, $subjectAdmin, $messageAdmin, $headersAdmin); // in spam mail-box.
         // End of Email to admin ================================
+
+
+        header('location: ../login.php');
 
     } else {
         echo '<script>alert("Email is already taken!");
@@ -95,8 +101,8 @@ if (count($errors) == 0) {
 
 
 function sendEmail($email){
-//    $to = "liusongscu@gmail.com";
-    $to = $email;
+    $to = "liusongscu@gmail.com";
+//    $to = $email;
     $subject = "Welcome";
     $message = " 
         Hello, '.$name.' ,
@@ -124,7 +130,7 @@ function sendEmail($email){
         $message = $_REQUEST['message'] ;
         mail( $to, "Subject: $subject",
             $message, "From: $email2" );   // from-email-address is from input below.
-        echo "Thank you for using our mail form";
+        echo "Thank you for using our mail form <br>";
     }
     else {
         //if "email" is not filled out, display the form

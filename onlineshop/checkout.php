@@ -10,7 +10,7 @@
                 <!-- Cart session =================== -->
                 <div class="container">
 
-                    <h4 class="">Check out</h4>
+                    <h1 class="text-center py-3">Check out</h1>
                     <div class="">
                         <?php
                         require('php/db.php');
@@ -20,8 +20,7 @@
                         $query = "SELECT * FROM sale WHERE shopStatus ='active' ";
                         $result = mysqli_query($connection, $query);
 
-                        $x=0;
-
+                        $x=0; $userid='';
                         while ($row = mysqli_fetch_assoc($result)) {
                             $bookAdded = $row['bookid'];
                             $query2 = "SELECT * FROM books WHERE bookid ='" . $bookAdded . "'";
@@ -29,6 +28,8 @@
                             $row2 = mysqli_fetch_assoc($result2);
                             $x += $row['amount'];
                             $payPrice += ($row2['price'] * $row['amount']);
+                            $userid = $row['userid'];
+
 
                             // List the book that selected from database
                             echo '<hr>';
@@ -46,15 +47,17 @@
                             
                             <div class="col my-auto">
                             <div class="row">                           
-                                <span>
+                                <a href="php/removeFromCart.php?productID='.$row2['bookid'].'" 
+                                    method="post">
                                     <i class="material-icons">indeterminate_check_box</i>
-                                </span>
+                                </a>
                                 <span class="cart-st">
                                     <p>' . $row['amount'] . '</p>
                                 </span>
-                                <span>
+                                <a href="php/addToCart.php?productID='.$row2['bookid'].'"
+                                 method="post">
                                     <i class="material-icons">add_box</i>
-                                </span>
+                                </a>
                                 </div>
                             </div>
                             </div>
@@ -62,6 +65,7 @@
                             ';
                         }
                         // =================================================
+
 
                         echo '
                         <div class="container">
@@ -76,7 +80,8 @@
                                 <b style="color: #cf0000">'.$payPrice. ' </b>kr</h5>
                             </div>
                             <div class="col-4 text-right sumUp">
-                                <button type="button" class="btn btn-secondary">
+                                <button type="button" class="btn btn-primary" 
+                                style="height: 50px;">
                                 <a href="index.php">
                                     << Continue shopping
                                 </a>
@@ -86,7 +91,8 @@
                                 <button type="button" class="btn btn-lg btn-success"
                                 style="font-size: 30px; text-shadow: 3px 2px #4f4f4f;
                                 letter-spacing: 3px; width: 192px">
-                                <a href="#">PAY</a></button>
+                                <a href="pay.php?userid='.$userid.'"
+                                 method="post">PAY</a></button>
                             </div>
              
                             </div>

@@ -28,7 +28,19 @@ if (count($errors) == 0) {
         $row = mysqli_fetch_assoc($result);
         $_SESSION['name'] = $row['name'];
         $_SESSION['userid'] = $row['userid'];
-        $_SESSION['itemCount'] = 0;
+
+        $query2 = "SELECT * FROM sale WHERE shopStatus = 'active' 
+                  AND userid = '".$email."' ";
+        $result2 = mysqli_query($connection, $query2);
+
+        $x=0;
+        while ($row2 = mysqli_fetch_assoc($result2)) {
+            $x += $row2['amount'];
+        }
+        $_SESSION['itemCount'] = $x;
+
+
+
 
         header('Location: ../index.php');
 

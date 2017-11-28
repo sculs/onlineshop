@@ -3,8 +3,8 @@
 while ($row = mysqli_fetch_assoc($result)) {
 
     echo '
-        <div class="col-lg-4 col-md-6 mb-4">
-        <div class="card h-100 products">
+        <div class="col-lg-4 col-md-6 mb-4 products">
+        <div class="card h-100 ">
             <a href="#"><img class="card-img-top" 
             src="'.$row['link'].'" alt="'.$row['title'].'"></a>
             
@@ -24,28 +24,19 @@ while ($row = mysqli_fetch_assoc($result)) {
             
             <div class="card-footer">
                 <div class="text-center">
-                
-                    <a href="php/addToCart.php?productID='.$row['bookid'].'"
-                        class="btn btn-primary" >
-                        <span style="font-size: 25px">+</span>
-                        &nbsp;&nbsp;&nbsp;Add to Cart
-                    </a>
+                    <div >
+                        <a href="php/addToCart.php?productID='.$row['bookid'].'"
+                            class="btn btn-primary" >
+                            <span style="font-size: 25px">+</span>
+                            &nbsp;&nbsp;&nbsp;Add to Cart
+                        </a>
+                       
+                    </div>
                 </div>
             </div>
         </div>
     </div>
     ';
 }
-
-
-echo '
-<script>
-function scrAlert() {
-    alert("Please log in before shopping.");
-    history.back();
-}
-</script>
-';
-
 
 ?>
