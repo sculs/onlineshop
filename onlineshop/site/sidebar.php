@@ -2,9 +2,11 @@
 <div class="col-lg-3">
 
     <div class="">
-        <div class="mt-1">
+        <div class="mt-1 img-hover">
+            <a href="index.php">
             <img style="width: 100%; height: auto; background-color: #f4f4f4"
                     src="img/logo.png" alt="Bookstore">
+            </a>
         </div>
         <div class="">
 

@@ -1,6 +1,6 @@
 <?php include "site/header.php" ?>
 <?php
-require('db.php');
+require('php/db.php');
 ?>
 
 <!-- Page Content -->
@@ -15,10 +15,8 @@ require('db.php');
 
         <div class="col-lg-9">
 
-
             <div class="row">
                 <?php
-
                 $search = $_POST['search'];
                 $query = "SELECT * FROM books WHERE 
                           title like '%$search%' OR
@@ -30,7 +28,7 @@ require('db.php');
                     include "site/products.php";
 
                 } else {
-                    echo '<h2>No Result!</h2>';
+                    echo '<h1 class="text-center my-5">No Result!</h1>';
                 }
                 ?>
             </div>

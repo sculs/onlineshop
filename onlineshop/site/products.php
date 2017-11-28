@@ -3,7 +3,7 @@
 while ($row = mysqli_fetch_assoc($result)) {
 
     echo '
-        <div class="col-lg-4 col-md-6 mb-4 products">
+        <div class="col-lg-4 col-md-6 mb-4 products img-hover">
         <div class="card h-100 ">
             <a href="#"><img class="card-img-top" 
             src="'.$row['link'].'" alt="'.$row['title'].'"></a>
