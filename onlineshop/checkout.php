@@ -1,12 +1,9 @@
-<?php
-session_start();
-include "header.php"
-?>
+<?php include "site/header.php" ?>
 
 <div class="container">
-    <?php include "searchBar.php" ?>
+    <?php include "site/searchBar.php" ?>
     <div class="row">
-        <?php include "sidebar.php" ?>
+        <?php include "site/sidebar.php" ?>
         <div class="col-lg-9">
             <div class="row">
 
@@ -56,7 +53,7 @@ include "header.php"
                             </div>
                             <div class="col-4">
                                 <h5>Total Price: &nbsp;&nbsp;
-                                <b style="color: #cf0000">'.$_SESSION['totalPrice'].' </b>kr</h5>
+                                <b style="color: #cf0000">'.$_SESSION['totalPrice']. ' </b>kr</h5>
                             </div>
                             <div class="col-4 text-right sumUp">
                                 <button type="button" class="btn btn-secondary">
@@ -81,11 +78,13 @@ include "header.php"
 
                 <!-- Cart session ends =================== -->
 
+
+
             </div>
             <div class="my-5"></div>
         </div>
     </div>
 </div>
 
-<?php include "footer.php" ?>
+<?php include "site/footer.php" ?>
 

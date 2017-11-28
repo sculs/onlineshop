@@ -7,6 +7,10 @@
     color: #cf0000;
 }
 
+/*.list a{*/
+    /*min-width: 300px;*/
+/*}*/
+
 .searchBar {
     background-color: #eeeeee;
 }

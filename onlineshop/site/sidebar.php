@@ -4,7 +4,7 @@
     <div class="">
         <div class="mt-1">
             <img style="width: 100%; height: auto; background-color: #f4f4f4"
-                    src="../img/logo.png" alt="Bookstore">
+                    src="img/logo.png" alt="Bookstore">
         </div>
         <div class="">
 
@@ -24,7 +24,7 @@
 
                 <tr class="table-info">
                     <td class="category-item">
-                        <a href="categories.php?cate=category1">
+                        <a href="index.php?cate=category1">
                             Children's Books
                         </a>
                     </td>
@@ -33,14 +33,14 @@
 
                 <tr class="table-info">
                     <td class="category-item">
-                        <a href="categories.php?cate=category2">
+                        <a href="index.php?cate=category2">
                             Business Books
                         </a>
                     </td>
                 </tr>
                 <tr class="table-info">
                     <td class="category-item">
-                        <a href="categories.php?cate=category3">
+                        <a href="index.php?cate=category3">
                             IT Books
                         </a>
                     </td>

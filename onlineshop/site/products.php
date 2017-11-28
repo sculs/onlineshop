@@ -1,26 +1,4 @@
 <?php
-session_start();
-require ('../php/db.php');
-
-$cate = "";
-if ($_GET['cate']) {
-    $cate = $_GET['cate'];
-    if ($cate == 'category1') {
-        $query = "SELECT * FROM books WHERE category = 'Children\'s book' ";
-    } elseif ($cate == 'category2') {
-        $query = "SELECT * FROM books WHERE category = 'Business book' ";
-    } elseif ($cate == 'category3') {
-        $query = "SELECT * FROM books WHERE category = 'IT book' ";
-    } else {
-        echo "Error, try again!";
-        header("Location: index.php");
-    }
-}
-else {
-    $query = "SELECT * FROM books";
-}
-
-$result = mysqli_query($connection, $query);
 
 while ($row = mysqli_fetch_assoc($result)) {
 
@@ -47,7 +25,7 @@ while ($row = mysqli_fetch_assoc($result)) {
             <div class="card-footer">
                 <div class="text-center">
                 
-                    <a href="../php/addToCart.php?productID='.$row['bookid'].'"
+                    <a href="php/addToCart.php?productID='.$row['bookid'].'"
                         class="btn btn-primary" >
                         <span style="font-size: 25px">+</span>
                         &nbsp;&nbsp;&nbsp;Add to Cart

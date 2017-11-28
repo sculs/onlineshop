@@ -9,7 +9,7 @@
 
     echo '<script>alert("You have logged out!"); history.back();</script>';
 
-    header("Location: ../site/index.php");
+    header("Location: ../index.php");
     exit();
 
 ?>

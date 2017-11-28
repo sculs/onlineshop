@@ -1,4 +1,4 @@
-<?php include "header.php" ?>
+<?php include "site/header.php" ?>
 
 
 <!-- Page Content -->
@@ -7,7 +7,7 @@
 
     <div class="row">
 
-        <?php include "sidebar.php" ?>
+        <?php include "site/sidebar.php" ?>
 
         <div class="col-lg-9">
 
@@ -18,7 +18,7 @@
                 <div class="container">
                     <div class="my-5 py-5 mx-5">
                     <h1 class="text-center mb-5">Log in</h1>
-                    <form action="../php/login.php" method="post">
+                    <form action="php/login.php" method="post">
                         <div class="form-group">
                             <label for="inputEmail-l">Email:<sup class="warn">*</sup></label>
                             <input type="email" class="form-control"
@@ -49,4 +49,4 @@
     </div>
 </div>
 
-<?php include "footer.php" ?>
+<?php include "site/footer.php" ?>

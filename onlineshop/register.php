@@ -1,4 +1,4 @@
-<?php include "header.php" ?>
+<?php include "site/header.php" ?>
 
 
 <!-- Page Content -->
@@ -7,7 +7,7 @@
 
     <div class="row">
 
-        <?php include "sidebar.php" ?>
+        <?php include "site/sidebar.php" ?>
 
         <div class="col-lg-9">
             <div class="row">
@@ -17,7 +17,7 @@
                     <div class="mb-5 py-4 mx-auto" style="width: 75%;">
                         <h1 class="text-center mb-4">Create an account</h1>
 
-                        <form action="../php/register.php" method="post" >
+                        <form action="php/register.php" method="post" >
                             <div>
                                 <label style="margin-bottom: 0"
                                     for="Email">Email:<sup class="warn">*</sup></label><br>
@@ -70,4 +70,4 @@
     </div>
 </div>
 
-<?php include "footer.php" ?>
+<?php include "site/footer.php" ?>

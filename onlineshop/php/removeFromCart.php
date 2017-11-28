@@ -23,7 +23,7 @@ $_SESSION["itemCount"] -= 1;
 $_SESSION['totalPrice'] -= $productPrice;
 
 
-header("Location: ../index.html");
+header("Location: ../index.php");
 exit();
 
 ?>

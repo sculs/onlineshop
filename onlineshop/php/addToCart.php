@@ -12,7 +12,7 @@ $itemCount = $_SESSION['itemCount'];
 if (empty($customerID)) {
     echo '<script>alert("Please log in before shopping.");
         history.back();</script>';
-    header("Location: ../site/login.php");
+    header("Location: ../login.php");
     exit();
 }
 
@@ -49,7 +49,7 @@ $_SESSION["itemCount"] += 1;
 $_SESSION['totalPrice'] += $productPrice;
 
 
-header("Location: ../site/checkout.php?productID=$productID");
+header("Location: ../checkout.php?productID=$productID");
 exit();
 
 

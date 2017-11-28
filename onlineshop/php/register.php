@@ -40,7 +40,7 @@ if (count($errors) == 0) {
 
         $_SESSION['status'] = "";
         $_SESSION['email'] = "$email";
-        header('location: ../index.html');
+        header('location: ../index.php');
 
         // Send Email to customer ================================
         $to = $email;
@@ -85,7 +85,7 @@ if (count($errors) == 0) {
     } else {
         echo '<script>alert("Email is already taken!");
         history.back();</script>';
-        // header('Location: register.php');
+        // header('Location: ../register.php');
         exit();
     }
 

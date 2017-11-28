@@ -1,7 +1,7 @@
 
 <!-- Search function-->
 <?php
-//$_SESSION['itemCount'] ?? 0;
+$_SESSION['itemCount'] ?? 0;
 ?>
 <div class="searchBar">
 <div class="container my-1 py-3 ">
@@ -36,10 +36,10 @@
             </span>
             <?php
             $link = "checkout.php?ordNumber=" . $_SESSION['productID'];
-            $link = "../php/cart.php?ordNumber=" . $_SESSION['productID'];
+//            $link = "php/cart.php?ordNumber=" . $_SESSION['productID'];
             ?>
-        <a href="link">
-            <img src="../img/logo.png" alt="" width="180" height="60">
+        <a href="checkout.php">
+            <img src="img/logo.png" alt="" width="180" height="60">
         </a>
         </div>
     </div>

@@ -9,7 +9,7 @@ $itemCount = $_SESSION['itemCount'];
 if (empty($customerID)) {
     echo '<script>alert("Log in to check your cart.");
         history.back();</script>';
-    header("Location: index.html");
+    header("Location: ../index.php");
     exit();
 }
 
@@ -17,7 +17,7 @@ if (empty($customerID)) {
 if ($itemCount < 1) {
     echo '<script>alert("Your cart is empty!");
         history.back();</script>';
-    header("Location: index.html");
+    header("Location: ../index.php");
 }
 
 // When logged in and added items
