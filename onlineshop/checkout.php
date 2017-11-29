@@ -16,24 +16,28 @@
                         require('php/db.php');
                         global $connection;
 
-                        //with shopStatus of "active" to loop all products the user added
-                        $query = "SELECT * FROM sale WHERE shopStatus ='active' AND amount > 0 ";
-                        $result = mysqli_query($connection, $query);
+                        $x = 0;
+                        $userid = '';
+                        $payPrice = 0;
 
-                        $x=0; $userid='';
-                        while ($row = mysqli_fetch_assoc($result)) {
-                            $bookAdded = $row['bookid'];
-                            $query2 = "SELECT * FROM books WHERE bookid ='" . $bookAdded . "'";
-                            $result2 = mysqli_query($connection, $query2);
-                            $row2 = mysqli_fetch_assoc($result2);
-                            $x += $row['amount'];
-                            $payPrice += ($row2['price'] * $row['amount']);
-                            $userid = $row['userid'];
+                        if ($_SESSION['status'] == "login") {
+                            //with shopStatus of "active" to loop all products the user added
+                            $query = "SELECT * FROM sale WHERE shopStatus ='active' AND amount > 0 ";
+                            $result = mysqli_query($connection, $query);
+
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                $bookAdded = $row['bookid'];
+                                $query2 = "SELECT * FROM books WHERE bookid ='" . $bookAdded . "'";
+                                $result2 = mysqli_query($connection, $query2);
+                                $row2 = mysqli_fetch_assoc($result2);
+                                $x += $row['amount'];
+                                $payPrice += ($row2['price'] * $row['amount']);
+                                $userid = $row['userid'];
 
 
-                            // List the book that selected from database
-                            echo '<hr>';
-                            echo '
+                                // List the book that selected from database
+                                echo '<hr>';
+                                echo '
                             <div class="row">
                             <div class="col">
                                 <img height="160" width="auto" src="' . $row2['link'] . '" 
@@ -47,14 +51,14 @@
                             
                             <div class="col my-auto">
                             <div class="row">                           
-                                <a href="php/removeFromCart.php?productID='.$row2['bookid'].'" 
+                                <a href="php/removeFromCart.php?productID=' . $row2['bookid'] . '" 
                                     method="post">
                                     <i class="material-icons">indeterminate_check_box</i>
                                 </a>
                                 <span class="cart-st">
                                     <p>' . $row['amount'] . '</p>
                                 </span>
-                                <a href="php/addToCart.php?productID='.$row2['bookid'].'"
+                                <a href="php/addToCart.php?productID=' . $row2['bookid'] . '"
                                  method="post">
                                     <i class="material-icons">add_box</i>
                                 </a>
@@ -63,6 +67,7 @@
                             </div>
                             <hr>
                             ';
+                            }
                         }
                         // =================================================
 
@@ -77,7 +82,7 @@
                             </div>
                             <div class="col-4">
                                 <h5>Total Price: &nbsp;&nbsp;
-                                <b style="color: #cf0000">'.$payPrice. ' </b>kr</h5>
+                                <b style="color: #cf0000">'.$payPrice. ' </b>&nbsp;kr</h5>
                             </div>
                             <div class="col-4 text-right sumUp">
                                 <button type="button" class="btn btn-primary" 
