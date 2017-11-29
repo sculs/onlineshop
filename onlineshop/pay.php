@@ -19,6 +19,7 @@
                 $bookName=array();
                 $bookPrice=array();
                 $totalPrice = 0;
+                $msg = '';
 
                 while ($row1 = mysqli_fetch_assoc($result1)){
                     $amount = $row1['amount'];
@@ -37,71 +38,75 @@
                     $bookName[$x] = $row3['title'];
                     $bookPrice[$x] = $row3['price'] * $amount;
                     $totalPrice += $bookPrice[$x];
+                    $msg .= $bookName[$x].'&nbsp;'.'&nbsp;'.'&nbsp;'.$amount.'&nbsp;'.'st'.
+                        '&nbsp;'.'&nbsp;'.'&nbsp;'.$bookPrice[$x].'&nbsp;'.'kr'.'<br>';
                     $x++;
 
                     $query4 = "UPDATE books SET storage = ($storage - $amount )
                         WHERE bookid = '".$bookid."' ";
                     $result4 = mysqli_query($connection, $query4);
-
                 }
+
+                $query5 = "SELECT * FROM users WHERE email = '".$email."' ";
+                $result5 = mysqli_query($connection, $query5);
+                $row5 = mysqli_fetch_assoc($result5);
+                $name =$row5['name'];
 
                 $_SESSION['itemCount'] = 0;
                 $_SESSION['totalPrice'] = 0;
 
 
             // Send confirmation email to customer ================================
+                global $msg;
+                if (!isset($name)){
+                    $name = 'customer';
+                }
                 $to = $email;
-                $from = "order@bookstore.com";
+                $from = "order@liusong.xyz";
                 $subject = "Order confirmation";
                 $message = " 
-                    Hello, $name,</br></br>
+                    Dear, '.$name.',</br></br>
                     
+                    Here is the confirmation of your order at Bookstore.<br>
+                    Items:<br>
+                    '.$msg.'<br><br>
+                    Total price: '.$totalPrice.' kr<br><br>
+                 
                     Thanks for shopping at Bookstore!</br>
-                    Your order is created:<br>"
-                ?>
-                    
-                    <?php
-                    for ($i = 0; $i < $x; $i++){
-                        $bookName[$i];
-                        $bookPrice[$i];
-                    }
-                        $totalPrice;
-                    ?>
+                    Have a nice day!<br><br>
 
-                <?php
-                $message .= "
-                    </br></br>
-            
-            
                     Best wishes,</br>
-                    Book Store</br>
+                    from Book Store</br>
                     ";
 
-                $headers = "From:". ".$from." . "\r\n";
+                $headers = "From:". $from . "\r\n";
                 $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 
                 mail($to, $subject, $message, $headers); // in spam mail-box.
-                //echo "Mail Sent.<br>";
                 // End of Email to customer ================================
 
 
                 // Send Email to admin ================================
                 $toAdmin = "teamworkbookstore@gmail.com";
-                $fromAdmin = "order@bookstore.com";
-                $subjectAdmin = "new order";
+                $fromAdmin = "order@liusong.xyz";
+                $subjectAdmin = "new order info";
                 $messageAdmin = "
                     A new order har placed.<br><br>
-                    Sent from PHP
+                    '.$name.' has order the following books:<br>
+                    '.$msg.'<br><br>
+                    Total price: '.$totalPrice.' kr<br><br>
+                    
+                    Sent from system
                     ";
-                $headersAdmin = "From: $from" . "\r\n";
+                $headersAdmin = "From:". $from . "\r\n";
                 $headersAdmin .= "Content-type:text/html;charset=UTF-8" . "\r\n";
                 mail($toAdmin, $subjectAdmin, $messageAdmin, $headersAdmin); // in spam mail-box.
                 // End of Email to admin ================================
 
                 ?>
 
-                <div class="col col-6">
-                    <h2>Fill in your address</h2>
+                <div class="col col-6 px-5">
+                    <h2 class="my-4">Fill in your address</h2>
                     <form action="#">
                         <div class="form-group">
                             <label for="firstName">First Name:</label>
@@ -131,8 +136,8 @@
                     </form>
 
                 </div>
-                <div class="col col-6">
-                    <h2>Creditcard info:</h2>
+                <div class="col col-6 px-5">
+                    <h2 class="my-4">Creditcard info:</h2>
                     <form action="#">
                         <div class="form-group">
                             <label for="cardNumber">Card Number:</label>
