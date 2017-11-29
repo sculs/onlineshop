@@ -10,12 +10,12 @@ $itemCount = $_SESSION['itemCount'];
 $shopStatus = "active";
 
 // if customer is not logged in
-if (empty($customerID)) {
-//    echo '<script>alert("Please log in before shopping.");
-//        history.back();</script>';
-    header("Location: ../login.php");
-    exit();
-}
+    if (empty($customerID)) {
+    //    echo '<script>alert("Please log in before shopping.");
+    //        history.back();</script>';
+        header("Location: ../login.php");
+        exit();
+    }
 
 global $connection;
 
@@ -42,13 +42,13 @@ $row3 = mysqli_fetch_assoc($result3);
 $amount = $row3['amount'];
 
 // Insert added Item to database;
-if (count($row3) > 0) {
-    $query4 = "UPDATE sale SET amount = '".$amount."' + 1 
-    WHERE bookid = '".$productID."' AND shopStatus = '".$shopStatus."'";
-} else {
-    $query4 = "INSERT INTO sale (bookid, userid, amount, orderNumber, productPrice, shopStatus) 
-          VALUES ('$productID', '$customerID', 1, '$orderNumber', '$productPrice', '$shopStatus');";
-}
+    if (count($row3) > 0) {
+        $query4 = "UPDATE sale SET amount = '".$amount."' + 1 
+        WHERE bookid = '".$productID."' AND shopStatus = '".$shopStatus."'";
+    } else {
+        $query4 = "INSERT INTO sale (bookid, userid, amount, orderNumber, productPrice, shopStatus) 
+              VALUES ('$productID', '$customerID', 1, '$orderNumber', '$productPrice', '$shopStatus');";
+    }
 $result4 = mysqli_query($connection, $query4);
 
 

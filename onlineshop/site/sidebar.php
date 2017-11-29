@@ -70,6 +70,9 @@
             </div>
         <div id="map" style="width:100%; height:300px;"></div>
         </div>
+            <div>
+                <p >SHOW : <a href="site/api.php" >books.JSON</a></p>
+            </div>
 
     </div>
 </div>

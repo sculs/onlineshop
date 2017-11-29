@@ -56,7 +56,7 @@
                 $_SESSION['totalPrice'] = 0;
 
 
-            // Send confirmation email to customer ================================
+                // Send confirmation email to customer ================================
                 global $msg;
                 if (!isset($name)){
                     $name = 'customer';
@@ -65,12 +65,12 @@
                 $from = "order@liusong.xyz";
                 $subject = "Order confirmation";
                 $message = " 
-                    Dear, '.$name.',</br></br>
+                    Dear, $name,</br></br>
                     
                     Here is the confirmation of your order at Bookstore.<br>
                     Items:<br>
-                    '.$msg.'<br><br>
-                    Total price: '.$totalPrice.' kr<br><br>
+                    $msg <br><br>
+                    Total price: $totalPrice kr<br><br>
                  
                     Thanks for shopping at Bookstore!</br>
                     Have a nice day!<br><br>
@@ -92,9 +92,9 @@
                 $subjectAdmin = "new order info";
                 $messageAdmin = "
                     A new order har placed.<br><br>
-                    '.$name.' has order the following books:<br>
-                    '.$msg.'<br><br>
-                    Total price: '.$totalPrice.' kr<br><br>
+                    $name has order the following books:<br>
+                    $msg <br><br>
+                    Total price: $totalPrice kr<br><br>
                     
                     Sent from system
                     ";
@@ -161,7 +161,7 @@
 
 
 
-                </div>
+            </div>
             <div class="my-5"></div>
         </div>
     </div>

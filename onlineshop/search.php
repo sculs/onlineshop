@@ -1,7 +1,5 @@
 <?php include "site/header.php" ?>
-<?php
-require('php/db.php');
-?>
+<?php require('php/db.php') ?>
 
 <!-- Page Content -->
 <div class="container">
